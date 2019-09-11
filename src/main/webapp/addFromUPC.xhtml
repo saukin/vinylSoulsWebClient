@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>#{msgs.title}</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+
+    </h:head>
+    <h:body>
+        <f:facet name="last">
+            <h:outputStylesheet library="css" name="main.css"/>
+        </f:facet>
+        <p:messages id="messages" showDetail="false" autoUpdate="true" style="position: absolute; top:1em; left: 40%;"/>
+        <header>
+            <h1><span>Vinyl</span>SOULS</h1>
+            
+            <h:form styleClass="login">        
+                <div class="button"> 
+                    <h:commandButton id="addRecord" value="#{msgs.addrecord}" action="#{albumBean.clearBean()}" 
+                                     styleClass="button"/>
+                </div>
+                <div class="button"> 
+                    <h:commandButton id="logbutton" value="#{msgs.logout}" action="#{loginController.logOut()}" 
+                                     styleClass="button"/>
+                </div>
+                <!--<p:growl id="growl" showDetail="true"/>-->
+            </h:form>
+
+
+        </header>
+        <article>
+            <section id="album">
+                <div class="image">
+                    <p:graphicImage  />
+                </div>
+                <h:form id="discInfo" styleClass="discInfo">
+                    <h:outputLabel value="Album :"> <span>#{albumBean.album_name}</span> </h:outputLabel>
+                    <h:outputLabel value="Artist: "><span>#{albumBean.artist_group}</span></h:outputLabel>
+                    <h:outputLabel value="YEAR: "><span>#{albumBean.pressing_year}</span></h:outputLabel>
+                    <h:outputLabel value="UPC: "><span>#{albumBean.upc_code}</span></h:outputLabel>
+                    <h:outputLabel value="Condition: "><span>#{albumBean.condition_state}</span></h:outputLabel>
+                    <h:outputLabel value="NOTES: "><span>${albumBean.notes}</span></h:outputLabel>
+                    <br/>
+                    <h:outputLabel value="Choose the UPC: "/>
+                    <div class="upcScrollBox">
+                        <h:dataTable  value="#{brendanService.upc}" var="upcItem" style="width:100%">
+                            <h:column >
+                                <p:commandButton value="#{upcItem}" action="#{brendanService.getAlbumInfo({0})}" styleClass="listButton">
+                                    <f:param name="upcItem" value="#{upcItem}" />
+                                </p:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <div class="buttonArea">
+                        <p:commandButton value="#{msgs.addAlbum}" action="#{listManager.addAlbum()}" styleClass="resetButton"/>
+                        <p:commandButton value="back" action="addRecord" styleClass="resetButton" immediate="true"/>
+                    </div>
+                </h:form>
+            </section>
+
+            <section id="side">
+                <h:form styleClass="search">
+                    <p:inputText styleClass="field" id="search" value="#{listManager.upcName}" required="false" label="search"
+                                 placeholder="SEARCH BY UPC / ALBUM NAME / ARTIST">
+
+                    </p:inputText>
+                    
+                    <h:commandButton value="search" action="#{listManager.getAlbumListByUpc()}" styleClass="searchButton"/>
+                </h:form>
+                <h:form styleClass="list">
+                    <div id="scrollbox" >
+                        <h:form id="content" styleClass="content" >
+                            <h:dataTable value="#{listManager.albumList}" var="album" style="width:100%;">
+                                <h:column>
+                                   <p:commandButton value="( #{album.upc_code} ) --  #{album.artist_group}  --  \'#{album.album_name}\'" action="#{listManager.getAlbumInfo({0})}"  styleClass="listButton">
+                                        <f:param name="entry" value="#{album.entry}" />
+
+                                    </p:commandButton> 
+                                </h:column>
+                            </h:dataTable>
+                            <div class="buttonArea">
+                                <p:commandButton value="#{msgs.activeAlbums} (#{albumClient.countActive(userBean.idToString())})" action="#{listManager.getAlbumsByUserId(true)}" styleClass="resetButton"/>
+                                <p:commandButton value="#{msgs.inactiveAlbums} (#{albumClient.countInactive(userBean.idToString())})" action="#{listManager.getAlbumsByUserId(false)}" styleClass="resetButton"/>
+                                <p:commandButton value="#{msgs.all}" action="#{listManager.resetList()}" styleClass="resetButton"/>
+                            </div>
+                        </h:form>
+                    </div>
+
+                </h:form>
+            </section>
+        </article>
+
+
+    </h:body>
+
+</html>

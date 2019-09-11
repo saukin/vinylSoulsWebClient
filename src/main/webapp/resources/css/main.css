@@ -1,0 +1,358 @@
+/*@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Economica|Orbitron|Quicksand|Roboto+Mono:300,400|Roboto:100,400|Shadows+Into+Light|Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400i&display=swap');
+
+html, body {
+	height: 100%;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../resources/images/vinyl_11.jpg) no-repeat fixed center center;
+    background-size: cover;
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+/*    border-style: double;
+    border-color: white;*/
+}
+
+h1 {
+    width: 70%;
+    height:100%;
+    font-size: 7vmin;
+    text-align: left;
+    padding: 2% 0 0 15%;
+    font-family: 'Shadows Into Light', cursive;
+    opacity: 0.9;
+/*    border-style: double;
+    border-color: white;*/
+}
+
+h1 span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    
+}
+
+/*form .loginMessage {
+    position: absolute;
+    top:1em;
+    left:45%;
+    background-color: transparent;
+    color:white;
+    font-family: 'Shadows Into Light', cursive;
+    
+}*/
+
+.login {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+/*    border-style: dotted;
+    border-color: white;*/
+    
+}
+
+.fields {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding:0 0 0 5%;
+/*    border-style: double;
+    border-color: white;*/
+}
+
+form .field  {
+    height: 2em;
+    width: 90%;
+    margin: 0.5em;
+    background-color: transparent;
+    border:none;
+    box-shadow: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2vmin;
+    color: white;
+    text-shadow:none;
+    font-weight: 300;
+}
+
+form .field:enabled  {
+    box-shadow: none;
+}
+
+form .field:hover  {
+    box-shadow: 1px 1px 0px 0px rgba(255,255,255,0.4);
+}
+
+form ::placeholder {
+    color:white;
+    opacity: 1;
+}
+
+
+@keyframes shadow {
+from {text-shadow: 0 0 0px white;}
+50% {font-size:2.3vmin;
+    text-shadow: 0 0 30px white;}
+to {color: gold;
+    text-shadow: 0 0 0px white;}
+}
+
+.button {
+    padding: 5px;
+    width: 6em;
+    height: 6em;
+    background-color: transparent;
+    color: white;
+    border-radius: 3em;
+    opacity: 1;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2vmin;
+    font-weight: 400;
+    animation: shadow 0.5s;
+    margin-right:2em;
+}
+
+.button :hover {
+    font-size: 2.1vmin;
+}
+
+.ui-message.ui-widget {
+    background-color: transparent;
+    border:none;
+    color: firebrick;
+    
+}
+
+article {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    
+}
+
+#album {
+    height: 65vmin;
+    width: 80%;
+    display:flex;
+    
+    /*opacity: 0.9;*/
+}
+
+.image {
+    height: 100%;
+    width: 65vmin;
+    background: url(../resources/images/default.jpg) no-repeat center center;
+    /*border: solid aliceblue;*/
+    margin: 4vmin 0 10vmin 5vmin;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position:relative;
+}
+
+.uploadButton {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+.image img {
+    height: 100%;
+    width: auto;
+    
+    /*opacity: 0.9;*/
+}
+
+.discInfo {
+    height: 100%;
+    width: 30vmin;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vmin;
+    font-weight: lighter;
+    margin: 4vmin 0 10vmin 5vmin;
+    background: linear-gradient(rgba(20,76,89,0) 0%, rgba(20,76,89,0.01) 50%, rgba(20,76,89,0.15) 90%, rgba(20,76,89,0) 100%);
+    /*background-color: rgba(0,0,0,0.05);*/
+    /*border: solid white;*/
+}
+
+.discInfo span {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 3vmin;
+    
+}
+
+/*.notes {
+    flex-grow: 1;
+    
+   
+}*/
+
+.notes span {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2vmin;
+    font-weight: 400;
+}
+
+
+#side {
+    width: 40%;
+    height: 65vmin;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 4vmin 4vmin 10vmin 5vmin;
+}
+
+.search {
+    width: 100%;
+    height:10%;
+    display:flex;
+    flex-wrap: nowrap;
+    
+}
+
+.searchButton {
+    margin-top: 1vmin;
+    width: 6em;
+    height: 2em;
+    background-color: transparent;
+    color: white;
+    opacity: 0.9;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2vmin;
+    font-weight: 300;
+}
+
+.search .field {
+    
+    width: 72%;
+    color: white !important;
+    opacity: 1 !important;
+    /*border: solid white;*/
+}
+
+
+.list {
+    height: 90%;
+    width: 100%;
+    padding: 1vmin 1vmin 0 0;
+    background: linear-gradient(rgba(20,76,89,0) 0%, rgba(20,76,89,0.01) 40%, rgba(20,76,89,0.15) 80%, rgba(20,76,89,0.01) 100%);
+    position: relative;
+    
+}
+#scrollbox{
+    width:100%;
+    height:90%;
+    overflow:auto; overflow-x:hidden;
+}
+
+.upcScrollBox{
+    width:100%;
+    height:5em;
+    overflow:auto; overflow-x:hidden;
+    
+    
+}
+
+.listButton {
+    width: 100%;
+    background: none;
+    color: white;    
+    text-shadow: none;
+    text-align: left;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2vmin;
+    font-weight: 400;
+    border: none;
+    height:2em;
+}
+
+
+
+.buttonArea {
+    width:100%;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex-grow: 1;
+}
+
+.resetButton {
+    flex-grow: 1;
+    background-color: transparent;
+    border-radius: 0;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.5vmin;
+    
+}
+
+form .fieldNotes {
+    height: 10em;
+    width: 100%;
+    margin: 0.5em;
+    background-color: transparent;
+    border:none;
+    box-shadow: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2vmin;
+    color: white;
+    text-shadow:none;
+    font-weight: 300;
+    flex-grow: 3;
+}
+
+form .label {
+    width:100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent; 
+  border-radius: 50%;
+  border: solid gray;
+}
+
