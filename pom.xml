@@ -14,6 +14,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
+    <!-- All of the sample code shares the same dependencies and build         -->
+    <!-- The parent project named web_project_dependencies must be loaded into -->
+    <!-- the IDE and you must Run Maven with a goal of install:install         -->
+    <!-- Now it can be the parent pom of all projects                          --> 
+    <!-- https://gitlab.com/omniprof/web_project_dependencies.git              --> 
+    <parent>
+        <groupId>com.kfwebstandard</groupId>
+        <artifactId>web_project_dependencies</artifactId>
+        <version>1.0</version>
+    </parent>
+    
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -61,7 +72,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+<!--    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -91,7 +102,7 @@
                     <execution>
                         <phase>validate</phase>
                         <goals>
-                            <goal>copy</goal>
+                            <goal>install:install</goal>
                         </goals>
                         <configuration>
                             <outputDirectory>${endorsed.dir}</outputDirectory>
@@ -117,5 +128,5 @@
             <layout>default</layout>
             <name>Repository for library PrimeFaces-maven-lib</name>
         </repository>
-    </repositories>
+    </repositories>-->
 </project>
