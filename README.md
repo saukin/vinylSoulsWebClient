@@ -19,6 +19,7 @@ To launch it please do next actions:
 5. use the webapp.
 
 you can see logins and passwords in database provided with vinylSoulsServer.
+also you can find some images for creating new albums in XS_webApp/src//main/webapp/resources/posters folder.
 
 
 Any comments about the application and its implementations are very welcome!
